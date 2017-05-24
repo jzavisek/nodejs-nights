@@ -8,7 +8,9 @@
     "npm": "~4.2.0"
   },
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "dev": "nodemon .",
+    "lint": "./node_modules/.bin/eslint ./src"
   },
   "repository": {
     "type": "git",
@@ -26,11 +28,15 @@
   },
   "homepage": "https://github.com/strvcom/nodejs-nights-project#readme",
   "dependencies": {
-    "koa": "^2.2.0"
+    "bluebird": "^3.5.0",
+    "koa": "^2.2.0",
+    "koa-body": "^2.0.1",
+    "koa-compress": "^2.0.0"
   },
   "devDependencies": {
     "@strv/eslint-config-javascript": "^6.5.0",
     "babel-eslint": "^7.2.3",
-    "eslint": "^3.19.0"
+    "eslint": "^3.19.0",
+    "nodemon": "^1.11.0"
   }
 }
