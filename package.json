@@ -1,0 +1,36 @@
+{
+  "name": "links-manager",
+  "version": "1.0.0",
+  "description": "App to manage links",
+  "main": "./src/api",
+  "engines": {
+    "node": "~7.10.0",
+    "npm": "~4.2.0"
+  },
+  "scripts": {
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strvcom/nodejs-nights-project.git"
+  },
+  "keywords": [
+    "links",
+    "bookmarks",
+    "manager"
+  ],
+  "author": "Josef Zavisek <josef.zavisek@strv.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/strvcom/nodejs-nights-project/issues"
+  },
+  "homepage": "https://github.com/strvcom/nodejs-nights-project#readme",
+  "dependencies": {
+    "koa": "^2.2.0"
+  },
+  "devDependencies": {
+    "@strv/eslint-config-javascript": "^6.5.0",
+    "babel-eslint": "^7.2.3",
+    "eslint": "^3.19.0"
+  }
+}
