@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+  head
+    title= Pug
+  body
+    h1 Hello from Node.js
+    .content
+      p.
+        This is a very basic page
+      button.js-action Click me
+
+    script(src='https://code.jquery.com/jquery-3.2.1.min.js',integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=',crossorigin='anonymous')
+    script(type='text/javascript').
+      $('.js-action').on('click', function() {
+        $.get('http://localhost:3000')
+          .then(data => {
+            console.log(data)
+          })
+          .catch(err => {
+            console.error(err)
+          })
+      })

@@ -4,6 +4,9 @@ const Koa = require('koa')
 const Promise = require('bluebird')
 const koaBody = require('koa-body')
 const koaCompress = require('koa-compress')
+const koaCors = require('kcors')
+const KoaPug = require('koa-pug')
+const path = require('path')
 
 global.Promise = Promise
 
@@ -14,22 +17,15 @@ const log = {
 }
 
 const app = new Koa()
+const pug = new KoaPug({ viewPath: path.join(__dirname, 'views') })
+
 app.use(koaCompress())
+app.use(koaCors({ origin: '*' }))
 app.use(koaBody({ multipart: true }))
+pug.use(app)
 
-app.use(async (ctx, nextMiddleware) => {
-  log.info('Incoming request')
-  await nextMiddleware()
-})
-
-app.use(async ctx => {
-  log.info(ctx.request.headers)
-  log.info(ctx.request.body)
-  await Promise.delay(1000)
-  ctx.status = 200
-  ctx.body = {
-    status: 'runnning',
-  }
+app.use(ctx => {
+  ctx.render('index')
 })
 
 app.start = () => {

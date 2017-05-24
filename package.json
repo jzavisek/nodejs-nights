@@ -29,9 +29,11 @@
   "homepage": "https://github.com/strvcom/nodejs-nights-project#readme",
   "dependencies": {
     "bluebird": "^3.5.0",
+    "kcors": "^2.2.1",
     "koa": "^2.2.0",
     "koa-body": "^2.0.1",
-    "koa-compress": "^2.0.0"
+    "koa-compress": "^2.0.0",
+    "koa-pug": "^3.0.0-2"
   },
   "devDependencies": {
     "@strv/eslint-config-javascript": "^6.5.0",
