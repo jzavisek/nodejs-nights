@@ -8,8 +8,8 @@
     "npm": "~4.2.0"
   },
   "scripts": {
-    "start": "node .",
-    "dev": "nodemon .",
+    "start": "node . | ./node_modules/.bin/bunyan",
+    "dev": "nodemon . | ./node_modules/.bin/bunyan",
     "lint": "./node_modules/.bin/eslint ./src"
   },
   "repository": {
@@ -29,6 +29,7 @@
   "homepage": "https://github.com/strvcom/nodejs-nights-project#readme",
   "dependencies": {
     "bluebird": "^3.5.0",
+    "bunyan": "^1.8.10",
     "kcors": "^2.2.1",
     "koa": "^2.2.0",
     "koa-body": "^2.0.1",

@@ -6,13 +6,10 @@ const koaBody = require('koa-body')
 const koaCompress = require('koa-compress')
 const koaCors = require('kcors')
 
-global.Promise = Promise
+const config = require('../modules/config')
+const log = require('../modules/logging')
 
-const port = 3000
-const log = {
-  info: console.log,
-  error: console.error,
-}
+global.Promise = Promise
 
 const app = new Koa()
 
@@ -21,13 +18,16 @@ app.use(koaCors({ origin: '*' }))
 app.use(koaBody({ multipart: true }))
 
 app.use(ctx => {
-  ctx.render('index')
+  log.info({ header: ctx.request.headers }, 'Server route hit.')
+  ctx.body = {
+    status: 'running',
+  }
 })
 
 app.start = () => {
   log.info('Starting server ...')
-  app.listen(port, () => {
-    log.info(`==> 🌎 Server running on port ${port}.`)
+  app.listen(config.server.port, () => {
+    log.info(`==> 🌎 Server running on port ${config.server.port}.`)
   })
 }
 
