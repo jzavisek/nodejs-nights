@@ -22,7 +22,7 @@ app.use(koaBody({ multipart: true }))
 // Register routes
 app.use(routes)
 
-// Initialize start method
+// Define start method
 app.start = () => {
   log.info('Starting server ...')
   app.listen(config.server.port, () => {
