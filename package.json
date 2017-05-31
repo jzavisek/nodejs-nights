@@ -30,6 +30,7 @@
   "dependencies": {
     "bluebird": "^3.5.0",
     "bunyan": "^1.8.10",
+    "joi": "^10.5.2",
     "kcors": "^2.2.1",
     "koa": "^2.2.0",
     "koa-body": "^2.0.1",
