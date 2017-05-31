@@ -16,4 +16,7 @@ module.exports = {
       level: 'debug',
     },
   },
+  validation: {
+    shortTextLength: 300,
+  },
 }

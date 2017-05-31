@@ -24,6 +24,7 @@ function processKnownError(ctx, err) {
   ctx.body = {
     type: err.type,
     message: err.message,
+    errors: err.errors,
   }
 }
 
