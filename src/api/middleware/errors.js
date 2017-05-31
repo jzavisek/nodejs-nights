@@ -28,12 +28,13 @@ function processKnownError(ctx, err) {
 }
 
 function processUnknownError(ctx, err) {
-  err.correlationId = 
+  err.correlationId = uuid.v1()
+  log.error(err, 'Unhandler erorr')
 
   if (config.env === 'production') {
     ctx.body = {
+      correlationId: err.correlationId,
       message: 'Unknown error occurred.',
-
     }
   } else {
     ctx.body = {
