@@ -5,6 +5,7 @@
 const pkg = require('../../../package.json')
 
 module.exports = {
+  env: process.env.NODE_ENV || 'local',
   appName: pkg.name,
   server: {
     port: process.env.PORT || 3000,

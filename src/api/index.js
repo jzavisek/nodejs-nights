@@ -9,6 +9,7 @@ const koaCors = require('kcors')
 const config = require('../modules/config')
 const log = require('../modules/logging')
 const routes = require('./routes')
+const middleware = require('./middleware')
 
 global.Promise = Promise
 
@@ -18,6 +19,7 @@ const app = new Koa()
 app.use(koaCompress())
 app.use(koaCors({ origin: '*' }))
 app.use(koaBody({ multipart: true }))
+app.use(middleware.errors.handleError)
 
 // Register routes
 app.use(routes)

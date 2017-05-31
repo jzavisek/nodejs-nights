@@ -34,7 +34,8 @@
     "koa": "^2.2.0",
     "koa-body": "^2.0.1",
     "koa-compress": "^2.0.0",
-    "koa-router": "^7.2.0"
+    "koa-router": "^7.2.0",
+    "uuid": "^3.0.1"
   },
   "devDependencies": {
     "@strv/eslint-config-javascript": "^6.5.0",
