@@ -1,22 +1,18 @@
+/* eslint-disable no-process-env, global-require */
+
 'use strict'
 
-/* eslint-disable no-process-env */
+const env = process.env.NODE_ENV || 'local'
 
-const pkg = require('../../../package.json')
-
-module.exports = {
-  env: process.env.NODE_ENV || 'local',
-  appName: pkg.name,
-  server: {
-    port: process.env.PORT || 3000,
-  },
-  logging: {
-    stdout: {
-      enabled: true,
-      level: 'debug',
-    },
-  },
-  validation: {
-    shortTextLength: 300,
-  },
+if (env === 'local') {
+  require('dotenv').config({ silent: false })
 }
+
+const _ = require('lodash')
+
+const envConfigPath = `./env/${env}`
+const envConfig = require(envConfigPath)
+const defaultConfig = require('./default')
+
+const resultConfig = _.merge({}, defaultConfig, envConfig)
+module.exports = resultConfig
