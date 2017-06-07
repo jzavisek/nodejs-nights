@@ -11,8 +11,7 @@ module.exports = {
         joi.validate(data, schema, { abortEarly: false }, done))
       return result
     } catch (err) {
-      throw new errors.ValidationError('Validation', 'Invalid data format',
-        err.details.map(detail => detail.message))
+      throw new errors.ValidationError(err.details.map(detail => detail.message))
     }
   },
 }

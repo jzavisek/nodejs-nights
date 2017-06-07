@@ -1,0 +1,25 @@
+version: '3'
+services: 
+
+  database-postgres:
+    image: sameersbn/postgresql
+    container_name: bookmarks-app-postgres
+    environment:
+    - DB_NAME=bookmarks-db,bookmarks-db-test
+    - PG_TRUST_LOCALNET=true
+    ports:
+    - 5432:5432
+    volumes:
+    - postgres-data:/var/lib/postgresql
+
+  database-mongo:
+    image: mongo:3
+    container_name: bookmarks-app-mongo
+    ports:
+    - 27017:27017
+    volumes:
+    - mongo-data:/data/db
+
+volumes:
+  postgres-data:
+  mongo-data:

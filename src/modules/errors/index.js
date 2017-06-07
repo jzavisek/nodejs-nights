@@ -9,8 +9,8 @@ class AppError extends Error {
 }
 
 class ValidationError extends AppError {
-  constructor(type = 'Validation', message = 'Invalid data format', errors = []) {
-    super(type, message, 400)
+  constructor(errors = []) {
+    super('Validation', 'Invalid data format.', 400)
     this.errors = errors
   }
 }
