@@ -15,7 +15,14 @@ class ValidationError extends AppError {
   }
 }
 
+class NotFound extends AppError {
+  constructor(type = 'NotFound', message = 'Requested resources was not found.') {
+    super(type, message, 404)
+  }
+}
+
 module.exports = {
   AppError,
   ValidationError,
+  NotFound,
 }

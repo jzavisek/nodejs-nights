@@ -1,6 +1,7 @@
 'use strict'
 
 const _ = require('lodash')
+const log = require('../../logging')
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
@@ -12,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING,
       allowNulls: false,
+      unique: true,
     },
     firstName: {
       type: DataTypes.STRING,
@@ -28,22 +30,41 @@ module.exports = (sequelize, DataTypes) => {
       allowNulls: false,
       field: 'password_hash',
     },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+      field: 'created_at',
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+      field: 'updated_at',
+    },
   }, {
+
     tableName: 'users',
-    timestamps: false,
-    classMethods: {
-    },
-    instanceMethods: {
-      toJSON() {
-        const user = this.get()
-        return _.omit(user, 'passwordHash')
-      },
-    },
+    timestamps: true,
+
     hooks: {
-      // beforeCreate
+
+      beforeCreate(instance, options) {
+        log.info({ instance, options }, 'Before create hook hit.')
+        // TODO: will be shown later
+      }
+
     },
   })
 
+  // Instance methods
+  User.prototype.toJSON = function() {
+    const user = this.get()
+    return _.omit(user, 'passwordHash')
+  }
+
+  // Class methods
+  // User.doSomething = function () {}
+
   return User
 }
-

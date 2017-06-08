@@ -4,6 +4,7 @@ const joi = require('joi')
 const errors = require('../errors')
 
 module.exports = {
+
   validate(data, schema) {
     const result = joi.validate(data, schema, { abortEarly: false })
     if (result.error) {
@@ -12,4 +13,5 @@ module.exports = {
 
     return result.value
   },
+
 }

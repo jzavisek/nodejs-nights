@@ -6,6 +6,7 @@ const log = require('../../modules/logging')
 const config = require('../../modules/config')
 
 module.exports = {
+
   async handleError(ctx, nextMiddleware) {
     try {
       await nextMiddleware()
@@ -17,6 +18,7 @@ module.exports = {
       }
     }
   },
+
 }
 
 function processKnownError(ctx, err) {

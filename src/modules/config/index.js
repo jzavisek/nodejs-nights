@@ -12,7 +12,7 @@ const _ = require('lodash')
 
 const envConfigPath = `./env/${env}`
 const envConfig = require(envConfigPath)
-const defaultConfig = require('./default')
+const defaultConfig = require('./default')(env)
 
 const resultConfig = _.merge({}, defaultConfig, envConfig)
 module.exports = resultConfig

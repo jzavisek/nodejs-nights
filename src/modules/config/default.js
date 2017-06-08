@@ -4,7 +4,8 @@
 
 const pkg = require('../../../package.json')
 
-module.exports = {
+module.exports = env => ({
+  env,
   appName: pkg.name,
   server: {
     port: process.env.PORT || 3000,
@@ -30,12 +31,17 @@ module.exports = {
     },
   },
   auth: {
-    secret: process.env.AUTH_SECRET,
-    options: {
-      algorithm: 'HS256',
-      // 1h
+    secret: process.env.AUTH_SECRET
+      || 'wPlwdiDMLthMSQUcEgRQDSM2gBbW0chWv/gE8YVP1L6iWYaRKolm7UoXClFjPAQb',
+    createOptions: {
+      // expires in 1h
       expiresIn: 60 * 60,
-      issuer: 'com.strv.bookmarks-app-dev',
+      algorithm: 'HS256',
+      issuer: `com.strv.bookmarks-api.${env}`,
     },
+    verifyOptions: {
+      algorithm: 'HS256',
+      issuer: `com.strv.bookmarks-api.${env}`,
+    }
   },
-}
+})

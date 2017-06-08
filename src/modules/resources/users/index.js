@@ -7,9 +7,12 @@ module.exports = {
 
   schema,
 
-  async getByEmail(email) {
-    const user = await db.models.User.findOne({ where: { email } })
-    return user
+  getByEmail(email) {
+    return db.models.User.findOne({ where: { email } })
+  },
+
+  getById(userId) {
+    return db.models.User.findById(userId)
   },
 
 }
