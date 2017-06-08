@@ -4,8 +4,8 @@
   "description": "App to manage links",
   "main": "./src/api",
   "engines": {
-    "node": "~7.10.0",
-    "npm": "~4.2.0"
+    "node": "~8.0.0",
+    "npm": "~5.1.0"
   },
   "scripts": {
     "start": "node . | ./node_modules/.bin/bunyan",
