@@ -1,3 +1,7 @@
+# To run app in the container do this (fill <host-ip> with your IP address):
+# docker build --tag bookmarks-app:latest .
+# docker run --name bookmarks-app-container --env DATABASE_URL=postgres://postgres@<host-ip>:5432/bookmarks-db -p 3000:3000 bookmarks-app
+
 FROM node:8.0.0
 MAINTAINER Josef Zavisek
 
