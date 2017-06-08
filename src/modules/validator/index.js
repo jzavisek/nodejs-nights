@@ -1,17 +1,15 @@
 'use strict'
 
 const joi = require('joi')
-const Promise = require('bluebird')
 const errors = require('../errors')
 
 module.exports = {
-  async validate(data, schema) {
-    try {
-      const result = await Promise.fromCallback(done =>
-        joi.validate(data, schema, { abortEarly: false }, done))
-      return result
-    } catch (err) {
-      throw new errors.ValidationError(err.details.map(detail => detail.message))
+  validate(data, schema) {
+    const result = joi.validate(data, schema, { abortEarly: false })
+    if (result.error) {
+      throw new errors.ValidationError(result.error.details.map(detail => detail.message))
     }
+
+    return result.value
   },
 }

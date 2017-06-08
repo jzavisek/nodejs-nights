@@ -41,6 +41,7 @@
     "lodash": "^4.17.4",
     "pg": "^6.2.3",
     "pg-promise": "^5.9.0",
+    "sequelize": "^4.0.0",
     "uuid": "^3.0.1"
   },
   "devDependencies": {
