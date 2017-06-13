@@ -6,7 +6,7 @@ const config = require('../config')
 const logStreams = []
 if (config.logging.stdout) {
   logStreams.push({
-    level: config.logging.level,
+    level: config.logging.stdout.level,
     stream: process.stdout,
   })
 }
