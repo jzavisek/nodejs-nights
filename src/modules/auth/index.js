@@ -1,7 +1,7 @@
 'use strict'
 
 const jwt = require('jsonwebtoken')
-const config = require('')
+const config = require('../config')
 
 const BEARER_PREFIX = 'Bearer '
 

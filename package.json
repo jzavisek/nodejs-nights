@@ -10,7 +10,10 @@
   "scripts": {
     "start": "node . | ./node_modules/.bin/bunyan",
     "dev": "nodemon . | ./node_modules/.bin/bunyan",
-    "lint": "./node_modules/.bin/eslint ./src"
+    "lint": "./node_modules/.bin/eslint ./src",
+    "infrastructure:start": "docker-compose up -d --force-recreate",
+    "infrastructure:stop": "docker-compose stop",
+    "infrastructure:rm": "docker-compose rm"
   },
   "repository": {
     "type": "git",
@@ -32,6 +35,7 @@
     "bunyan": "^1.8.10",
     "dotenv": "^4.0.0",
     "joi": "^10.5.2",
+    "jsonwebtoken": "^7.4.1",
     "kcors": "^2.2.1",
     "koa": "^2.2.0",
     "koa-body": "^2.0.1",

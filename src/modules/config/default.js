@@ -42,6 +42,6 @@ module.exports = env => ({
     verifyOptions: {
       algorithm: 'HS256',
       issuer: `com.strv.bookmarks-api.${env}`,
-    }
+    },
   },
 })
