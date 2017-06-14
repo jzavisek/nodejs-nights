@@ -30,8 +30,14 @@ module.exports = {
 
   post: compose([
     middleware.validator.validaBody(users.schema.register),
-    ctx => {
-      // TODO: Homework - register the user
+    async ctx => {
+      // Perform registration
+      const userData = ctx.request.body
+      const registration = await users.register(userData)
+
+      // Write response
+      ctx.set('Authorization', registration.accessToken)
+      ctx.body = registration.user
       ctx.status = 201
     },
   ]),

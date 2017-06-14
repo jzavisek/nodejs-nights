@@ -21,8 +21,16 @@ class NotFound extends AppError {
   }
 }
 
+class ConflictError extends AppError {
+  constructor(type = 'Conflict', message = 'Entity conflict.') {
+    super(type, message, 409)
+  }
+}
+
+
 module.exports = {
   AppError,
   ValidationError,
   NotFound,
+  ConflictError,
 }

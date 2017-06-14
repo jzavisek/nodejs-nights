@@ -9,6 +9,20 @@ module.exports = env => ({
   appName: pkg.name,
   server: {
     port: process.env.PORT || 3000,
+    bodyParser: {
+      multipart: true,
+    },
+    cors: {
+      origin: '*',
+      exposeHeaders: [
+        'Authorization',
+        'Content-Language',
+        'Content-Length',
+        'Content-Type',
+        'ETag',
+      ],
+      maxAge: 3600,
+    },
   },
   logging: {
     stdout: {
@@ -33,6 +47,7 @@ module.exports = env => ({
   auth: {
     secret: process.env.AUTH_SECRET
       || 'wPlwdiDMLthMSQUcEgRQDSM2gBbW0chWv/gE8YVP1L6iWYaRKolm7UoXClFjPAQb',
+    saltRounds: 10,
     createOptions: {
       // expires in 1h
       expiresIn: 60 * 60,

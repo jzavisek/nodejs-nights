@@ -18,8 +18,8 @@ const app = new Koa()
 
 // Register middleware
 app.use(koaCompress())
-app.use(koaCors({ origin: '*' }))
-app.use(koaBody({ multipart: true }))
+app.use(koaCors(config.server.cors))
+app.use(koaBody(config.server.bodyParser))
 app.use(middleware.errors.handleError)
 
 // Register routes

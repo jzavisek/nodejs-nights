@@ -1,0 +1,6 @@
+--colors
+--recursive
+--timeout 5000
+--bail
+--check-leaks
+--require mocha-http-detect
