@@ -12,6 +12,7 @@
     "dev": "nodemon . | ./node_modules/.bin/bunyan",
     "lint": "./node_modules/.bin/eslint ./src",
     "test": "NODE_ENV=test ./node_modules/.bin/mocha --opts ./tests/mocha.opts ./tests",
+    "cover": "NODE_ENV=test ./node_modules/.bin/nyc ./node_modules/.bin/mocha --opts ./tests/mocha.opts ./tests",
     "infrastructure:start": "docker-compose up -d --force-recreate",
     "infrastructure:stop": "docker-compose stop",
     "infrastructure:rm": "docker-compose rm"
@@ -54,12 +55,17 @@
     "@strv/eslint-config-javascript": "^6.5.0",
     "babel-eslint": "^7.2.3",
     "chai": "^4.0.2",
+    "chai-as-promised": "^7.0.0",
     "chai-shallow-deep-equal": "^1.4.6",
     "chance": "^1.0.9",
     "dirty-chai": "^2.0.0",
     "eslint": "^3.19.0",
     "mocha": "^3.4.2",
     "mocha-http-detect": "^0.2.0",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "nyc": "^11.0.2",
+    "sinon": "^2.3.4",
+    "sinon-chai": "^2.11.0",
+    "supertest-koa-agent": "^0.3.0"
   }
 }

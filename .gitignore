@@ -1,1 +1,5 @@
 .env
+
+# Generated
+.nyc_output/
+coverage/
