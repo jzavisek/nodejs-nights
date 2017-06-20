@@ -22,6 +22,10 @@ app.use(koaCors(config.server.cors))
 app.use(koaBody(config.server.bodyParser))
 app.use(middleware.errors.handleError)
 
+if (config.env !== 'production') {
+  app.use(middleware.docs)
+}
+
 // Register routes
 app.use(routes)
 

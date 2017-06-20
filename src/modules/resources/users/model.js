@@ -51,14 +51,14 @@ module.exports = (sequelize, DataTypes) => {
 
       beforeCreate(instance, options) {
         log.info({ instance, options }, 'Before create hook hit.')
-        // TODO: will be shown later
-      }
+        // Run the code before a database record is created
+      },
 
     },
   })
 
   // Instance methods
-  User.prototype.toJSON = function() {
+  User.prototype.toJSON = function toJSON() {
     const user = this.get()
     return _.omit(user, 'passwordHash')
   }

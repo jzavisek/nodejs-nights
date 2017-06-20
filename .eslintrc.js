@@ -12,7 +12,7 @@ module.exports = {
   },
   rules: {
     'valid-jsdoc': 2,
-    'paddid-blocks': 0,
+    'padded-blocks': 0,
     'id-length': [1, {
       min: 2,
       max: 30,

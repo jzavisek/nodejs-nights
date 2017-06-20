@@ -1,0 +1,84 @@
+swagger: '2.0'
+
+info:
+  version: '1.0.0'
+  title: 'Bookmarks API'
+
+schemes: ['http']
+
+paths:
+
+  /status:
+    get:
+      summary: Test route
+      description:
+        Test route to verify that deployment was successful
+      responses:
+        200:
+          description: Server up and running
+      tags: ['Status']
+
+  /users:
+    post:
+      summary: Registeres a user
+      description: |
+        Creates a user record and sends `accessToken` with profile details in the
+        response. To use the `accessToken` for subsequent requests set authorization
+        header like shown below:
+        ```
+        Authorization: Bearer ACCESS_TOKEN_VALUE
+        ```
+      parameters:
+        -
+          name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RegistrationReq'
+      responses:
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/RegistrationRes'
+          headers:
+            Authorization:
+              type: string
+              description: Access token
+        400:
+          description: Bad request
+        409:
+          description: Conflict record found
+      tags: ['Users']
+      security: []
+
+definitions:
+
+  RegistrationReq:
+    type: object
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+
+  RegistrationRes:
+    type: object
+    properties:
+      id:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      email:
+        type: string
+      createdAt:
+        type: string
+        format: date-time
+      updatedAt:
+        type: string
+        format: date-time

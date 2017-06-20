@@ -6,6 +6,6 @@ module.exports = {
       dialectOptions: {
         ssl: true,
       },
-    }
+    },
   },
 }
