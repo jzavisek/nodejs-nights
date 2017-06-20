@@ -37,6 +37,29 @@ module.exports = {
     }
   },
 
+  async createSession(userData) {
+    log.info({ email: userData.email }, 'User sign in.')
+
+    // Find user
+    const user = await getByEmail(userData.email)
+    if (!user) {
+      throw new errors.Unauthorized()
+    }
+
+    // Verify password
+    const isPasswordValid = await auth.comparePasswords(userData.password, user.passwordHash)
+    if (!isPasswordValid) {
+      throw new errors.Unauthorized()
+    }
+
+    // Generate auth data
+    const accessToken = await auth.generateAccessToken(user.id)
+    return {
+      user,
+      accessToken,
+    }
+  },
+
 }
 
 function getByEmail(email) {

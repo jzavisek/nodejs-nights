@@ -27,10 +27,17 @@ class ConflictError extends AppError {
   }
 }
 
+class Unauthorized extends AppError {
+  constructor(type = 'Unauthorized', message = 'Not authorized.') {
+    super(type, message, 401)
+  }
+}
+
 
 module.exports = {
   AppError,
   ValidationError,
   NotFound,
   ConflictError,
+  Unauthorized,
 }

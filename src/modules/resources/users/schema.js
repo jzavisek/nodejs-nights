@@ -16,4 +16,9 @@ module.exports = {
     password: joi.string().min(8).required(),
   }),
 
+  createSession: joi.object().keys({
+    email: joi.string().required().max(config.validation.shortTextLength),
+    password: joi.string().min(8).required(),
+  }),
+
 }

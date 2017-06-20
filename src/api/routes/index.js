@@ -12,5 +12,8 @@ router.get('/', controllers.status.get)
 router.post('/users', controllers.users.post)
 router.get('/users/:userId', controllers.users.get)
 
+// Sessions
+router.post('/sessions', controllers.sessions.post)
+
 const middleware = router.routes()
 module.exports = middleware
