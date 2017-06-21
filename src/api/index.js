@@ -1,5 +1,11 @@
 'use strict'
 
+// eslint-disable-next-line no-process-env
+if (process.env.NEW_RELIC_LICENSE_KEY) {
+  // eslint-disable-next-line global-require
+  require('newrelic')
+}
+
 const Koa = require('koa')
 const Promise = require('bluebird')
 const koaBody = require('koa-body')

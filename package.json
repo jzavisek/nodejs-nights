@@ -47,6 +47,7 @@
     "koa-router": "^7.2.0",
     "koa-static2": "^0.1.8",
     "lodash": "^4.17.4",
+    "newrelic": "^1.40.0",
     "pg": "^6.2.3",
     "pg-promise": "^5.9.0",
     "sequelize": "^4.0.0",
