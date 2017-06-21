@@ -6,6 +6,7 @@ module.exports = {
     ctx.status = 200
     ctx.body = {
       status: 'running',
+      version: '1.0.0',
     }
   },
 
