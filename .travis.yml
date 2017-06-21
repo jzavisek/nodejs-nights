@@ -10,8 +10,6 @@ addons:
 env:
   global:
   - NODE_ENV=test
-before_install:
-- npm i -g npm@(node -p "require('./package').engines.npm")
 before_script:
 - psql -c 'create database "bookmarks-db-test";' -U postgres
 script:
