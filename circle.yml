@@ -1,0 +1,24 @@
+general:
+  branches:
+    only:
+      # List of branches to build
+      - master
+
+machine:
+  node:
+    version: 8.0.0
+  environment:
+    NODE_ENV: test
+    DATABASE_URL: postgres://postgres@localhost:5432/circle_test
+
+test:
+  pre:
+  - npm run lint
+  override:
+  - npm run cover
+
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: nodejs-nights-development

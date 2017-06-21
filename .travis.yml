@@ -18,6 +18,7 @@ script:
 cache:
   directories:
   - node_modules
+before_deploy: rm -rf node_modules
 deploy:
   provider: heroku
   app:
