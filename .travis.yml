@@ -1,6 +1,6 @@
 language: node_js
 dist: trusty
-node_js: 
+node_js:
 - 8.0.0
 branches:
   only:
@@ -15,3 +15,14 @@ before_script:
 script:
 - npm run lint
 - npm run cover
+cache:
+  directories:
+  - node_modules
+deploy:
+  provider: heroku
+  app:
+    master: nodejs-nights-development
+  on:
+    repo: jzavisek/nodejs-nights
+  api_key:
+    secure: IFdPiMlri3Sx6p6jIoZh+EgYx1cAGQvytqLfjEJwQPIQeOazwnfdpenuYq9DzeoHn2oJ16Y8x7c5qamMfoIiUHwxE0A/d8Q69+MQnPJB6PbLdgbdMOI2brTOEkL7i9xG/cZEAfOGLAgpRR6oBHud5VS/GwZUFjDM4fIo0K/to91PeP4hpHWwIy8HNL7f4crIchhET8QDazGBgg7boOBzpol+h5nbVSbkbZMOvDWEqTlgb8Jy0/movuUnGaVTZ/TZEvOFckXvvEDxtXgQtWqDjo0racN/SzjmZm8y2CuDE4JorHh5N75RuFpE5UkG957pC8+eVD7EHEowr69CwFWTo2miaP5P8Cg1vQhjBJONptfZ4Q0huZ+m0gjQxtUZlX38pusurvj9YEj73GREke1ALbemEQXeieiR9xh9/RYODmH4b1gg1k3iSibwjQkjWZPpthd3cRVqadATiY5kbcVDI7XXgXX82j2/6p4bfU3TYAS/fbCR5vCu9R2eXgWMtU9sVsf2347WyPyjAK52YkkIl/WQoIpkVFVxc61ixtu8vSd26/DWbzr4T6v6p6Ou4f3uLilkT9ukvM5hqDlzg8dlKA6XQHqCgXqzpcgsWQFmbdtyTMZnL86ESRHh1ptq8KfuBdi0JsWFWMivtMmb+VzDkumB9iu6hc8XrhM9WPSKrPQ=
